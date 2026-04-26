@@ -1,6 +1,8 @@
 import { Geist, Geist_Mono, JetBrains_Mono } from "next/font/google"
 
 import "./globals.css"
+import { FloatingChat } from "@/components/floating-chat"
+import { SitePreloader } from "@/components/site-preloader"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils";
 
@@ -25,7 +27,11 @@ export default function RootLayout({
       className={cn("antialiased", fontSans.variable, "font-mono", jetbrainsMono.variable, geistMonoHeading.variable)}
     >
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <SitePreloader />
+          {children}
+          <FloatingChat />
+        </ThemeProvider>
       </body>
     </html>
   )

@@ -4,7 +4,7 @@ import { Geist, Geist_Mono, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "WATPAK — From Waste to Resource",
+  title: "WATPAK | From Waste to Resource",
   description:
     "WATPAK connects waste generators with certified waste pickers and aggregators in Ghana. Specialising in fibre, paper, and cardboard waste collection. Schedule a pickup, get your waste weighed on-site, and earn money. Operating in Accra, Kumasi, and Tema.",
   keywords: [

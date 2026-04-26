@@ -21,6 +21,7 @@
 # misc
 .DS_Store
 *.pem
+*.xml
 
 # debug
 npm-debug.log*
@@ -42,3 +43,9 @@ AGENTS.md
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# project docs
+CLAUDE.md
+claude.md
+AGENTS.md
+agents.md

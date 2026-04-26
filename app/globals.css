@@ -5,8 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.147 0.004 49.3);
+    --background: #142d26;
+    --foreground: oklch(0.986 0.002 67.8);
     --card: oklch(1 0 0);
     --card-foreground: oklch(0.147 0.004 49.3);
     --popover: oklch(1 0 0);
@@ -40,7 +40,7 @@
 }
 
 .dark {
-    --background: oklch(0.147 0.004 49.3);
+    --background: #142d26;
     --foreground: oklch(0.986 0.002 67.8);
     --card: oklch(0.214 0.009 43.1);
     --card-foreground: oklch(0.986 0.002 67.8);
@@ -129,4 +129,61 @@
   html {
     @apply font-mono;
     }
+
+  /* Eco-friendly botanical pattern — light mode only */
+  html:not(.dark) body {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><g fill='none' stroke='%23142d26' stroke-width='0.9' opacity='0.5'><ellipse cx='24' cy='28' rx='8' ry='16' transform='rotate(-22 24 28)'/><line x1='24' y1='12' x2='24' y2='44' stroke-width='0.45' transform='rotate(-22 24 28)'/><ellipse cx='82' cy='72' rx='7' ry='13' transform='rotate(38 82 72)'/><line x1='82' y1='59' x2='82' y2='85' stroke-width='0.45' transform='rotate(38 82 72)'/><ellipse cx='100' cy='22' rx='5' ry='10' transform='rotate(-48 100 22)'/><line x1='100' y1='12' x2='100' y2='32' stroke-width='0.4' transform='rotate(-48 100 22)'/><ellipse cx='38' cy='95' rx='4' ry='8' transform='rotate(15 38 95)'/><line x1='38' y1='87' x2='38' y2='103' stroke-width='0.4' transform='rotate(15 38 95)'/><circle cx='60' cy='55' r='2.2' fill='%23142d26' stroke='none'/><circle cx='10' cy='75' r='1.6' fill='%23142d26' stroke='none'/><circle cx='108' cy='95' r='1.8' fill='%23142d26' stroke='none'/></g></svg>");
+    background-size: 120px 120px;
+    }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(105%); }
+  to   { transform: translateY(0); }
+}
+
+@keyframes text-fill {
+  from { color: transparent; }
+  to   { color: white; }
+}
+
+@keyframes scroll-drop {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(200%); }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50%       { transform: scale(1.012) rotate(0.3deg); }
+}
+
+body {
+    overflow-x: hidden;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes preloader-logo-reveal {
+  0% {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+  }
+  15% { opacity: 1; }
+  100% {
+    clip-path: inset(0 0% 0 0);
+    opacity: 1;
+  }
+}
+
+.preloader-logo-wrap {
+  position: relative;
+  animation: preloader-logo-reveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
 }

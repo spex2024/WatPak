@@ -35,3 +35,9 @@ pnpm-debug.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# project docs
+CLAUDE.md
+claude.md
+AGENTS.md
+agents.md

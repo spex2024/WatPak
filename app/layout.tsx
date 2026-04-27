@@ -53,6 +53,7 @@ export const metadata: Metadata = {
     icon: "https://res.cloudinary.com/ddwet1dzj/image/upload/v1777217085/watpack/favicon_gnnwpg.ico",
   },
 }
+import Script from "next/script"
 import { FloatingChat } from "@/components/floating-chat"
 import { SitePreloader } from "@/components/site-preloader"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -84,6 +85,11 @@ export default function RootLayout({
           {children}
           <FloatingChat />
         </ThemeProvider>
+        <Script
+          src="https://cloud.umami.is/script.js"
+          data-website-id="9f6ebc93-1cc1-47e6-9070-431b53ebc9c8"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   )

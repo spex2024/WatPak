@@ -9,6 +9,12 @@ export default function ContactPage() {
 
         <section className="mx-auto max-w-[1400px] px-6 pt-32 pb-20 sm:px-10 sm:pt-40 md:px-16 lg:px-24">
 
+          <nav className="mb-10 flex items-center gap-2">
+            <a href="/" className="font-heading text-[10px] font-bold uppercase tracking-[0.25em] text-white/30 transition-colors hover:text-white/60">Home</a>
+            <span className="font-heading text-[10px] text-white/20">/</span>
+            <span className="font-heading text-[10px] font-bold uppercase tracking-[0.25em] text-primary">Contact</span>
+          </nav>
+
           <div className="flex flex-col gap-4 border-b border-white/10 pb-12 sm:pb-16">
             <p className="font-heading text-[10px] font-bold uppercase tracking-[0.35em] text-primary">
               Get In Touch

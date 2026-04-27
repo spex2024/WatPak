@@ -31,7 +31,7 @@ export function CtaSection() {
             {/* Sub + CTAs */}
             <div className="flex flex-col gap-6 md:items-end">
               <p className="max-w-xs font-heading text-sm font-medium leading-relaxed text-black/60 md:text-right">
-                Schedule your first pickup today. We collect, weigh, and pay — same day. No sorting. No trips.
+                Schedule your first pickup today. We collect, weigh, and log every kilogram to your dashboard. No sorting. No trips.
               </p>
               <div className="flex flex-wrap gap-3">
                 <button

@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     "packaging waste collection",
   ],
   openGraph: {
-    title: "WATPAK — From Waste to Resource",
+    title: "WATPAK: From Waste to Resource",
     description:
       "Ghana's fibre, paper, and waste collection platform. Schedule a pickup, get weighed on-site, and earn money.",
     type: "website",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "WATPAK — From Waste to Resource",
+    title: "WATPAK: From Waste to Resource",
     description:
       "Ghana's fibre, paper, and waste collection platform. Schedule a pickup, get weighed on-site, and earn money.",
   },

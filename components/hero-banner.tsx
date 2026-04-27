@@ -3,7 +3,16 @@
 import { useState } from "react"
 import Image from "next/image"
 import { ArrowDown, ArrowUpRight } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { NewTwitterIcon, Linkedin01Icon, Facebook01Icon, InstagramIcon } from "@hugeicons/core-free-icons"
 import { FullScreenMenu } from "@/components/full-screen-menu"
+
+const SOCIALS = [
+  { icon: NewTwitterIcon, label: "X"         },
+  { icon: Linkedin01Icon, label: "LinkedIn"  },
+  { icon: Facebook01Icon, label: "Facebook"  },
+  { icon: InstagramIcon,  label: "Instagram" },
+]
 
 const CLIP = `polygon(
   15% 0%,  85% 0%,
@@ -43,7 +52,7 @@ export function HeroBanner() {
         {/* Get Started — opens full-screen menu */}
         <button
           onClick={() => setMenuOpen(true)}
-          className="group mr-1 flex items-center gap-1.5 bg-primary px-3.5 py-2 font-heading text-[9px] font-bold uppercase tracking-tighter text-primary-foreground transition-all hover:bg-primary/90 sm:mr-6 sm:px-5 sm:py-2.5 sm:text-xs md:mr-8"
+          className="group mr-1 flex items-center gap-1.5 bg-primary px-3.5 py-2 font-heading text-[9px] font-bold uppercase tracking-tighter text-black transition-all hover:bg-primary/90 sm:mr-6 sm:px-5 sm:py-2.5 sm:text-xs md:mr-8"
         >
           Get Started
           <ArrowUpRight size={12} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -83,6 +92,17 @@ export function HeroBanner() {
           ))}
         </div>
 
+        {/* Social strip — right edge, vertically centered */}
+        <div className="absolute right-5 top-1/2 z-20 hidden -translate-y-1/2 flex-col items-center gap-4 lg:flex">
+          <div className="h-10 w-px bg-white/15" />
+          {SOCIALS.map(({ icon, label }) => (
+            <a key={label} href="#" aria-label={label} className="text-white/30 transition-colors hover:text-primary">
+              <HugeiconsIcon icon={icon} size={13} strokeWidth={1.5} />
+            </a>
+          ))}
+          <div className="h-10 w-px bg-white/15" />
+        </div>
+
 
         {/* Process steps — pinned to bottom, always horizontal row */}
         <div className="absolute bottom-0 left-0 right-0 z-20 px-3 sm:px-8 md:px-12 lg:px-20">
@@ -90,7 +110,7 @@ export function HeroBanner() {
             {[
               { num: "01", text: "We collect your waste" },
               { num: "02", text: "Weigh it on-site"      },
-              { num: "03", text: "You get paid"          },
+              { num: "03", text: "Earn on your dashboard" },
             ].map(({ num, text }) => (
               <div key={num} className="group/step flex flex-1 cursor-pointer items-center gap-2 px-3 py-3 transition-colors hover:bg-white/5 sm:gap-4 sm:px-6 sm:py-5 md:gap-5 md:px-8">
                 <span className="font-heading text-base font-bold leading-none text-primary shrink-0 transition-transform group-hover/step:scale-110 sm:text-2xl md:text-3xl">
@@ -128,14 +148,14 @@ export function HeroBanner() {
           <div className="pointer-events-none absolute inset-0 z-10">
 
             {/* Headline + CTA as one anchored block */}
-            <div className="pointer-events-auto absolute left-4 top-[38%] w-[85%] -translate-y-1/2 sm:left-8 sm:top-1/2 sm:w-[90%] sm:-translate-y-[55%] md:left-[10%] md:w-[75%]">
+            <div className="pointer-events-auto absolute inset-x-0 top-[32%] -translate-y-1/2 px-5 sm:inset-x-auto sm:left-8 sm:top-1/2 sm:w-[90%] sm:-translate-y-[55%] sm:px-0 md:left-[10%] md:w-[75%]">
               <h1 className="flex flex-col font-heading font-black uppercase leading-[0.75] tracking-tighter italic">
                 {[
-                  { text: "Get Paid", slideDelay: "0.1s", size: "text-[2.2rem] sm:text-8xl lg:text-[7rem] xl:text-[8rem]", color: "text-white" },
-                  { text: "For Your", slideDelay: "0.2s", size: "text-xl sm:text-6xl lg:text-[5rem] xl:text-[6rem]", color: "text-primary/90" },
-                  { text: "Waste.",   slideDelay: "0.3s", size: "text-[3.2rem] sm:text-9xl lg:text-[10rem] xl:text-[12rem]", color: "text-white" },
+                  { text: "Get Paid", slideDelay: "0.1s", size: "text-[2rem] xs:text-[2.4rem] sm:text-8xl lg:text-[7rem] xl:text-[8rem]", color: "text-white" },
+                  { text: "For Your", slideDelay: "0.2s", size: "text-lg xs:text-[1.4rem] sm:text-6xl lg:text-[5rem] xl:text-[6rem]", color: "text-primary/90" },
+                  { text: "Waste.",   slideDelay: "0.3s", size: "text-[3rem] xs:text-[3.6rem] sm:text-9xl lg:text-[10rem] xl:text-[12rem]", color: "text-white" },
                 ].map(({ text, slideDelay, size, color }) => (
-                  <div key={text} className="overflow-hidden">
+                  <div key={text} className="overflow-hidden pb-1 pr-4">
                     <div
                       className={`${size} ${color} transition-all duration-700`}
                       style={{
@@ -157,7 +177,7 @@ export function HeroBanner() {
               {/* CTA — flows directly below headline */}
               <button
                 onClick={() => setMenuOpen(true)}
-                className="group mt-5 inline-flex items-center gap-2 border border-white/30 bg-white/5 px-4 py-2.5 font-heading text-xs font-bold uppercase tracking-tighter text-white backdrop-blur-sm transition-all duration-300 hover:border-primary hover:bg-primary hover:text-primary-foreground sm:mt-8 sm:px-6 sm:py-3 sm:text-sm md:text-base"
+                className="group mt-4 inline-flex items-center gap-2 border border-white/30 bg-white/5 px-4 py-2.5 font-heading text-xs font-bold uppercase tracking-tighter text-white backdrop-blur-sm transition-all duration-300 hover:border-primary hover:bg-primary hover:text-primary-foreground sm:mt-8 sm:px-6 sm:py-3 sm:text-sm md:text-base"
                 style={{ animation: "slide-up 1.2s cubic-bezier(0.16,1,0.3,1) 0.5s both" }}
               >
                 <span>Earn Now</span>

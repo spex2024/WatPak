@@ -1,5 +1,12 @@
 import Image from "next/image"
 
+function cdnUrl(url: string, transforms: string) {
+  return url.replace("/upload/", `/upload/${transforms}/`)
+}
+
+const GRID_T = "f_auto,q_auto:good,w_800,c_fill,ar_4:3"
+const HERO_T = "f_auto,q_auto:good,w_1920,c_fill"
+
 const SCENES = [
   {
     num: "01",
@@ -21,7 +28,7 @@ const SCENES = [
   },
   {
     num: "04",
-    text: "Ama is notified — help is on the way.",
+    text: "Ama is notified. Help is on the way.",
     src: "https://res.cloudinary.com/ddwet1dzj/image/upload/v1777192120/watpack/scene-4-picker-assigned_qwwo9z.png",
     motion: "group-hover:scale-[1.08] group-hover:-translate-y-2 group-hover:rotate-1",
   },
@@ -88,10 +95,11 @@ export function HowItWorks() {
             style={{ paddingTop: "75%" }}
           >
             <Image
-              src={src}
+              src={cdnUrl(src, GRID_T)}
               alt={text}
               fill
-              unoptimized
+              loading="lazy"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               className={`object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform ${motion}`}
             />
 
@@ -117,10 +125,11 @@ export function HowItWorks() {
       {/* Scene 10 — full-bleed payoff */}
       <div className="relative h-[55vh] overflow-hidden sm:h-[65vh] md:h-[75vh]">
         <Image
-          src={FINAL_SCENE.src}
+          src={cdnUrl(FINAL_SCENE.src, HERO_T)}
           alt="Ama earns. Kwame earns."
           fill
-          unoptimized
+          loading="lazy"
+          sizes="100vw"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent" />

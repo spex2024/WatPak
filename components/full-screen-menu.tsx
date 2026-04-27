@@ -6,9 +6,10 @@ import { HugeiconsIcon } from "@hugeicons/react"
 import { NewTwitterIcon, Linkedin01Icon, Facebook01Icon, InstagramIcon } from "@hugeicons/core-free-icons"
 
 const MAIN_LINKS = [
-  { label: "Waste Picker", href: "/waste-picker", sub: "Get paid to collect waste" },
-  { label: "Waste Generator", href: "/business", sub: "Turn your waste into revenue" },
-  { label: "Aggregator",   href: "/aggregator",   sub: "Become a collection hub" },
+  { label: "Home",          href: "/",            sub: "Back to homepage",           mobileOnly: true  },
+  { label: "Waste Picker",  href: "/waste-picker", sub: "Get paid to collect waste",  mobileOnly: false },
+  { label: "Waste Generator", href: "/business",  sub: "Turn your waste into revenue", mobileOnly: false },
+  { label: "Aggregator",    href: "/aggregator",  sub: "Become a collection hub",    mobileOnly: false },
 ]
 
 const SUB_LINKS = [
@@ -76,27 +77,27 @@ export function FullScreenMenu({ isOpen, onClose }: Props) {
               <div className="absolute inset-0 bg-black/25" />
             </div>
             <p className="font-heading text-[10px] font-bold uppercase tracking-[0.3em] text-primary">
-              Latest Payout
+              From the Field
             </p>
-            <p className="mt-1 font-heading text-sm font-bold text-white">
-              Ama and Kwame get paid in Accra
+            <p className="mt-1 font-heading text-base font-medium leading-relaxed tracking-tight text-white/70">
+              Waste collected.<br />Earnings logged.
             </p>
           </div>
 
           <div className="space-y-1">
-            <p className="font-heading text-xs text-white/30">WatPak — Waste to Resource</p>
+            <p className="font-heading text-xs text-white/30">WatPak. Waste to Resource.</p>
             <p className="font-heading text-xs text-white/20">Operating in Accra, Ghana</p>
           </div>
         </div>
 
         {/* Right panel — main links */}
         <div className="flex flex-1 flex-col justify-center">
-          {MAIN_LINKS.map(({ label, href, sub }, i) => (
+          {MAIN_LINKS.map(({ label, href, sub, mobileOnly }, i) => (
             <a
               key={label}
               href={href}
               onClick={onClose}
-              className="group flex items-center justify-between border-b border-white/10 px-8 py-5 transition-all duration-200 hover:bg-white sm:px-12 sm:py-6"
+              className={`group flex items-center justify-between border-b border-white/10 px-8 py-5 transition-all duration-200 hover:bg-white sm:px-12 sm:py-6 ${mobileOnly ? "md:hidden" : ""}`}
               style={{
                 opacity: isOpen ? 1 : 0,
                 transform: isOpen ? "translateY(0)" : "translateY(16px)",

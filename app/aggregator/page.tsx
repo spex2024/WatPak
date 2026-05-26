@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { PageNav } from "@/components/page-nav"
 import { ArrowUpRight } from "lucide-react"
+import { APP_URL } from "@/lib/constants"
 
 const BENEFITS = [
   {
@@ -70,7 +71,7 @@ export default function AggregatorPage() {
               </p>
               <div className="mt-10">
                 <a
-                  href="#"
+                  href={APP_URL}
                   className="group inline-flex items-center gap-2 bg-primary px-7 py-4 font-heading text-sm font-bold uppercase tracking-tight text-black transition-all hover:bg-primary/90"
                 >
                   Apply as Aggregator
@@ -172,7 +173,7 @@ export default function AggregatorPage() {
                     Aggregation hubs are the backbone of everything WatPak does. Apply today and our team will assess your facility within five business days.
                   </p>
                   <a
-                    href="#"
+                    href={APP_URL}
                     className="group inline-flex items-center gap-2 bg-primary px-7 py-4 font-heading text-sm font-bold uppercase tracking-tight text-black transition-all hover:bg-primary/90"
                   >
                     Apply as Aggregator

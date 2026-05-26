@@ -8,10 +8,10 @@ import { NewTwitterIcon, Linkedin01Icon, Facebook01Icon, InstagramIcon } from "@
 import { FullScreenMenu } from "@/components/full-screen-menu"
 
 const SOCIALS = [
-  { icon: NewTwitterIcon, label: "X"         },
-  { icon: Linkedin01Icon, label: "LinkedIn"  },
-  { icon: Facebook01Icon, label: "Facebook"  },
-  { icon: InstagramIcon,  label: "Instagram" },
+  { icon: NewTwitterIcon, label: "X" },
+  { icon: Linkedin01Icon, label: "LinkedIn" },
+  { icon: Facebook01Icon, label: "Facebook" },
+  { icon: InstagramIcon, label: "Instagram" },
 ]
 
 const CLIP = `polygon(
@@ -72,14 +72,14 @@ export function HeroBanner() {
 
         {/* WATPAK concept icons: background pattern */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-[0.2] animate-[breathe_12s_ease-in-out_infinite]">
-           <div 
-             className="absolute inset-0" 
-             style={{ 
-               backgroundImage: `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'><g fill='none' stroke='white' stroke-width='0.8' opacity='0.5'><path d='M10 10h10M12 10V8h6v2M19 10l-1 8a1 1 0 01-1 .8H12a1 1 0 01-1-.8L10 10'/><path d='M50 15h8l1.5 3v3H50v-6zM42 12h8v9h-8z'/><circle cx='44' cy='23' r='1.5'/><circle cx='56' cy='23' r='1.5'/><path d='M15 55l2-2h4l2 2-2 2h-4z'/><path d='M18 48l-3 3M21 48l3 3'/><path d='M50 50l4 4M54 50l-4 4'/><circle cx='65' cy='60' r='1'/><path d='M55 12h5'/></g></svg>")`,
-               backgroundSize: "200px 200px",
-               maskImage: 'radial-gradient(circle at center, black, transparent 95%)'
-             }}
-           />
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'><g fill='none' stroke='white' stroke-width='0.8' opacity='0.5'><path d='M10 10h10M12 10V8h6v2M19 10l-1 8a1 1 0 01-1 .8H12a1 1 0 01-1-.8L10 10'/><path d='M50 15h8l1.5 3v3H50v-6zM42 12h8v9h-8z'/><circle cx='44' cy='23' r='1.5'/><circle cx='56' cy='23' r='1.5'/><path d='M15 55l2-2h4l2 2-2 2h-4z'/><path d='M18 48l-3 3M21 48l3 3'/><path d='M50 50l4 4M54 50l-4 4'/><circle cx='65' cy='60' r='1'/><path d='M55 12h5'/></g></svg>")`,
+              backgroundSize: "200px 200px",
+              maskImage: 'radial-gradient(circle at center, black, transparent 95%)'
+            }}
+          />
         </div>
 
         {/* Vertical guide lines */}
@@ -109,7 +109,7 @@ export function HeroBanner() {
           <div className="mx-auto flex w-full max-w-[1400px] divide-x divide-white/25 border-t border-white/25">
             {[
               { num: "01", text: "We collect your waste" },
-              { num: "02", text: "Weigh it on-site"      },
+              { num: "02", text: "Weigh it on-site" },
               { num: "03", text: "Earn on your dashboard" },
             ].map(({ num, text }) => (
               <div key={num} className="group/step flex flex-1 cursor-pointer items-center gap-2 px-3 py-3 transition-colors hover:bg-white/5 sm:gap-4 sm:px-6 sm:py-5 md:gap-5 md:px-8">
@@ -153,7 +153,7 @@ export function HeroBanner() {
                 {[
                   { text: "Get Paid", slideDelay: "0.1s", size: "text-[2rem] xs:text-[2.4rem] sm:text-8xl lg:text-[7rem] xl:text-[8rem]", color: "text-white" },
                   { text: "For Your", slideDelay: "0.2s", size: "text-lg xs:text-[1.4rem] sm:text-6xl lg:text-[5rem] xl:text-[6rem]", color: "text-primary/90" },
-                  { text: "Waste.",   slideDelay: "0.3s", size: "text-[3rem] xs:text-[3.6rem] sm:text-9xl lg:text-[10rem] xl:text-[12rem]", color: "text-white" },
+                  { text: "Waste.", slideDelay: "0.3s", size: "text-[3rem] xs:text-[3.6rem] sm:text-9xl lg:text-[10rem] xl:text-[12rem]", color: "text-white" },
                 ].map(({ text, slideDelay, size, color }) => (
                   <div key={text} className="overflow-hidden pb-1 pr-4">
                     <div

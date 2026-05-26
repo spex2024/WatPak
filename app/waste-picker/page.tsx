@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { PageNav } from "@/components/page-nav"
 import { ArrowUpRight } from "lucide-react"
+import { APP_URL } from "@/lib/constants"
 
 const BENEFITS = [
   {
@@ -69,7 +70,7 @@ export default function WastePickerPage() {
               </p>
               <div className="mt-10">
                 <a
-                  href="#"
+                  href={APP_URL}
                   className="group inline-flex items-center gap-2 bg-primary px-7 py-4 font-heading text-sm font-bold uppercase tracking-tight text-black transition-all hover:bg-primary/90"
                 >
                   Apply to Join
@@ -175,7 +176,7 @@ export default function WastePickerPage() {
                     Applications take less than five minutes. Onboarding is done within 48 hours. Your first pickup could be this week.
                   </p>
                   <a
-                    href="#"
+                    href={APP_URL}
                     className="group inline-flex items-center gap-2 bg-primary px-7 py-4 font-heading text-sm font-bold uppercase tracking-tight text-black transition-all hover:bg-primary/90"
                   >
                     Apply to Join

@@ -6,8 +6,8 @@ import { NewsletterModal } from "@/components/newsletter-modal"
 import { FullScreenMenu } from "@/components/full-screen-menu"
 
 export function CtaSection() {
-  const [modalOpen, setModalOpen]   = useState(false)
-  const [menuOpen,  setMenuOpen]    = useState(false)
+  const [modalOpen, setModalOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   return (
     <>
@@ -56,7 +56,7 @@ export function CtaSection() {
       </section>
 
       <NewsletterModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
-      <FullScreenMenu  isOpen={menuOpen}  onClose={() => setMenuOpen(false)}  />
+      <FullScreenMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
     </>
   )
 }

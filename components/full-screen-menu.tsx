@@ -6,22 +6,22 @@ import { HugeiconsIcon } from "@hugeicons/react"
 import { NewTwitterIcon, Linkedin01Icon, Facebook01Icon, InstagramIcon } from "@hugeicons/core-free-icons"
 
 const MAIN_LINKS = [
-  { label: "Home",          href: "/",            sub: "Back to homepage",           mobileOnly: true  },
-  { label: "Waste Picker",  href: "/waste-picker", sub: "Get paid to collect waste",  mobileOnly: false },
-  { label: "Waste Generator", href: "/business",  sub: "Turn your waste into revenue", mobileOnly: false },
-  { label: "Aggregator",    href: "/aggregator",  sub: "Become a collection hub",    mobileOnly: false },
+  { label: "Home", href: "/", sub: "Back to homepage", mobileOnly: true },
+  { label: "Waste Picker", href: "/waste-picker", sub: "Get paid to collect waste", mobileOnly: false },
+  { label: "Waste Generator", href: "/business", sub: "Turn your waste into revenue", mobileOnly: false },
+  { label: "Aggregator", href: "/aggregator", sub: "Become a collection hub", mobileOnly: false },
 ]
 
 const SUB_LINKS = [
   { label: "How It Works", href: "/#how-it-works" },
-  { label: "Contact",      href: "/contact" },
+  { label: "Contact", href: "/contact" },
 ]
 
 const SOCIALS = [
-  { icon: NewTwitterIcon, label: "X"         },
-  { icon: Linkedin01Icon, label: "LinkedIn"  },
-  { icon: Facebook01Icon, label: "Facebook"  },
-  { icon: InstagramIcon,  label: "Instagram" },
+  { icon: NewTwitterIcon, label: "X" },
+  { icon: Linkedin01Icon, label: "LinkedIn" },
+  { icon: Facebook01Icon, label: "Facebook" },
+  { icon: InstagramIcon, label: "Instagram" },
 ]
 
 interface Props {

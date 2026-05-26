@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { PageNav } from "@/components/page-nav"
 import { ArrowUpRight } from "lucide-react"
+import { APP_URL } from "@/lib/constants"
 
 const BENEFITS = [
   {
@@ -26,9 +27,13 @@ const BENEFITS = [
 ]
 
 const WASTE_TYPES = [
-  { title: "Fibre & Paper", body: "Office paper, newspapers, books, and mixed paper packaging.", soon: false },
-  { title: "Cardboard", body: "Flat and corrugated cardboard from deliveries, shipping, and storage.", soon: false },
+  {
+    title: "Fibre Waste",
+    body: "Office paper, newspapers, books, mixed paper packaging, and flat or corrugated cardboard from deliveries, shipping, and storage.",
+    soon: false,
+  },
   { title: "Plastics", body: "PET bottles, HDPE containers, and food-grade flexible packaging.", soon: true },
+  { title: "E-Waste", body: "Discarded electronics, cables, batteries, and office IT equipment.", soon: true },
   { title: "Metal & Scrap", body: "Aluminium cans, scrap metal, and light ferrous materials.", soon: true },
 ]
 
@@ -77,7 +82,7 @@ export default function BusinessPage() {
               </p>
               <div className="mt-10">
                 <a
-                  href="#"
+                  href={APP_URL}
                   className="group inline-flex items-center gap-2 bg-primary px-7 py-4 font-heading text-sm font-bold uppercase tracking-tight text-black transition-all hover:bg-primary/90"
                 >
                   Register as a Waste Generator
@@ -187,7 +192,7 @@ export default function BusinessPage() {
                     Stop treating waste as a cost. Register today and we will schedule your first pickup within 24 hours. No commitment, no minimum volume required.
                   </p>
                   <a
-                    href="#"
+                    href={APP_URL}
                     className="group inline-flex w-fit items-center gap-2 bg-primary px-7 py-4 font-heading text-sm font-bold uppercase tracking-tight text-black transition-all hover:bg-primary/90"
                   >
                     Register Now

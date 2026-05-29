@@ -118,7 +118,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="underline transition-colors hover:text-primary"
             >
-              dercolbags pakaging company limited
+              dercolbags packaging company limited
             </a>
           </p>
         </div>

@@ -33,10 +33,10 @@ const LINK_COLUMNS = [
 ]
 
 const SOCIAL_LINKS = [
-  { icon: NewTwitterIcon,  label: "X",         href: "#" },
-  { icon: Linkedin01Icon,  label: "LinkedIn",  href: "#" },
-  { icon: Facebook01Icon,  label: "Facebook",  href: "#" },
-  { icon: InstagramIcon,   label: "Instagram", href: "#" },
+  { icon: NewTwitterIcon, label: "X", href: "#" },
+  { icon: Linkedin01Icon, label: "LinkedIn", href: "#" },
+  { icon: Facebook01Icon, label: "Facebook", href: "#" },
+  { icon: InstagramIcon, label: "Instagram", href: "#" },
 ]
 
 export function Footer() {
@@ -107,11 +107,22 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="flex flex-col gap-2 border-t border-white/10 py-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="font-heading text-[10px] uppercase tracking-widest text-white/25">
+          <p className="font-heading text-[10px] uppercase tracking-widest text-white/55">
             © {year} WatPak. All rights reserved.
           </p>
-          <p className="font-heading text-[10px] uppercase tracking-widest text-white/25">
+          <p className="font-heading text-[10px] uppercase tracking-widest text-white/55">
             Operating in Accra, Ghana
+          </p>
+          <p className="font-heading text-[10px] uppercase tracking-widest text-white/55">
+            developed by{" "}
+            <a
+              href="https://dercolbags.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline transition-colors hover:text-primary"
+            >
+              dercolbags pakaging company limited
+            </a>
           </p>
         </div>
 

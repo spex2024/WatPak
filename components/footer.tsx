@@ -61,12 +61,12 @@ export function Footer() {
               />
             </div>
 
-            <p className="max-w-[220px] font-heading text-sm leading-relaxed text-white/40">
+            <p className="max-w-[220px] font-heading text-sm leading-relaxed text-white/70">
               From waste to resource.
             </p>
 
             {/* Social icons */}
-            <div className="flex items-center gap-5 text-white/40">
+            <div className="flex items-center gap-5 text-white/60">
               {SOCIAL_LINKS.map(({ icon, label, href }) => (
                 <a
                   key={label}
@@ -92,7 +92,7 @@ export function Footer() {
                     <li key={label}>
                       <a
                         href={href}
-                        className="font-heading text-sm text-white/40 transition-colors hover:text-white"
+                        className="font-heading text-sm text-white/70 transition-colors hover:text-white"
                       >
                         {label}
                       </a>
@@ -109,9 +109,6 @@ export function Footer() {
         <div className="flex flex-col gap-2 border-t border-white/10 py-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="font-heading text-[10px] uppercase tracking-widest text-white/55">
             © {year} WatPak. All rights reserved.
-          </p>
-          <p className="font-heading text-[10px] uppercase tracking-widest text-white/55">
-            Operating in Accra, Ghana
           </p>
           <p className="font-heading text-[10px] uppercase tracking-widest text-white/55">
             developed by{" "}

@@ -3,11 +3,10 @@
 import { useState } from "react"
 import { ArrowUpRight, Mail } from "lucide-react"
 import { NewsletterModal } from "@/components/newsletter-modal"
-import { FullScreenMenu } from "@/components/full-screen-menu"
+import { APP_URL } from "@/lib/constants"
 
 export function CtaSection() {
   const [modalOpen, setModalOpen] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
 
   return (
     <>
@@ -34,13 +33,15 @@ export function CtaSection() {
                 Schedule your first pickup today. We collect, weigh, and log every kilogram to your dashboard. No sorting. No trips.
               </p>
               <div className="flex flex-wrap gap-3">
-                <button
-                  onClick={() => setMenuOpen(true)}
+                <a
+                  href={APP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group inline-flex items-center gap-2 bg-black px-7 py-4 font-heading text-sm font-bold uppercase tracking-tight text-white transition-all hover:bg-[#142d26]"
                 >
                   Earn Now
                   <ArrowUpRight size={15} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </button>
+                </a>
                 <button
                   onClick={() => setModalOpen(true)}
                   className="inline-flex items-center gap-2 border-2 border-black px-7 py-4 font-heading text-sm font-bold uppercase tracking-tight text-black transition-all hover:bg-black hover:text-white"
@@ -56,7 +57,6 @@ export function CtaSection() {
       </section>
 
       <NewsletterModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
-      <FullScreenMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
     </>
   )
 }

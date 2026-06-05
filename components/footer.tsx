@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { HugeiconsIcon } from "@hugeicons/react"
 import { NewTwitterIcon, Linkedin01Icon, Facebook01Icon, InstagramIcon } from "@hugeicons/core-free-icons"
+import { APP_URL } from "@/lib/constants"
 
 const LINK_COLUMNS = [
   {
@@ -8,7 +9,7 @@ const LINK_COLUMNS = [
     links: [
       { label: "Home", href: "/" },
       { label: "How It Works", href: "/#how-it-works" },
-      { label: "Get Started", href: "/contact" },
+      { label: "Get Started", href: APP_URL, external: true },
       { label: "Contact", href: "/contact" },
     ],
   },
@@ -18,7 +19,7 @@ const LINK_COLUMNS = [
       { label: "Waste Pickers", href: "/waste-picker" },
       { label: "Waste Generator", href: "/business" },
       { label: "Aggregators", href: "/aggregator" },
-      { label: "Join the Network", href: "/contact" },
+      { label: "Join the Network", href: APP_URL, external: true },
     ],
   },
   {
@@ -88,10 +89,13 @@ export function Footer() {
                   {heading}
                 </p>
                 <ul className="flex flex-col gap-3">
-                  {links.map(({ label, href }) => (
+                  {links.map(({ label, href, external }) => (
                     <li key={label}>
                       <a
                         href={href}
+                        {...(external
+                          ? { target: "_blank", rel: "noopener noreferrer" }
+                          : {})}
                         className="font-heading text-sm text-white/70 transition-colors hover:text-white"
                       >
                         {label}

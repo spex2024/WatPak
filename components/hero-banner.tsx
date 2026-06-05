@@ -6,6 +6,7 @@ import { ArrowDown, ArrowUpRight } from "lucide-react"
 import { HugeiconsIcon } from "@hugeicons/react"
 import { NewTwitterIcon, Linkedin01Icon, Facebook01Icon, InstagramIcon } from "@hugeicons/core-free-icons"
 import { FullScreenMenu } from "@/components/full-screen-menu"
+import { APP_URL } from "@/lib/constants"
 
 const SOCIALS = [
   { icon: NewTwitterIcon, label: "X" },
@@ -174,15 +175,17 @@ export function HeroBanner() {
                 ))}
               </h1>
 
-              {/* CTA — flows directly below headline */}
-              <button
-                onClick={() => setMenuOpen(true)}
-                className="group mt-4 inline-flex items-center gap-2 border border-white/30 bg-white/5 px-4 py-2.5 font-heading text-xs font-bold uppercase tracking-tighter text-white backdrop-blur-sm transition-all duration-300 hover:border-primary hover:bg-primary hover:text-primary-foreground sm:mt-8 sm:px-6 sm:py-3 sm:text-sm md:text-base"
+              {/* CTA */}
+              <a
+                href={APP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group pointer-events-auto mt-4 inline-flex items-center gap-2 border border-white/30 bg-white/5 px-4 py-2.5 font-heading text-xs font-bold uppercase tracking-tighter text-white backdrop-blur-sm transition-all duration-300 hover:border-primary hover:bg-primary hover:text-primary-foreground sm:mt-8 sm:px-6 sm:py-3 sm:text-sm md:text-base"
                 style={{ animation: "slide-up 1.2s cubic-bezier(0.16,1,0.3,1) 0.5s both" }}
               >
                 <span>Earn Now</span>
-                <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 sm:w-5 sm:h-5" />
-              </button>
+                <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 sm:h-5 sm:w-5" />
+              </a>
             </div>
 
             {/* Premium scroll indicator */}

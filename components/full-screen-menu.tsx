@@ -4,6 +4,7 @@ import Image from "next/image"
 import { X, ArrowUpRight } from "lucide-react"
 import { HugeiconsIcon } from "@hugeicons/react"
 import { NewTwitterIcon, Linkedin01Icon, Facebook01Icon, InstagramIcon } from "@hugeicons/core-free-icons"
+import { APP_URL } from "@/lib/constants"
 
 const MAIN_LINKS = [
   { label: "Home", href: "/", sub: "Back to homepage", mobileOnly: true },
@@ -137,6 +138,25 @@ export function FullScreenMenu({ isOpen, onClose }: Props) {
                 {label}
               </a>
             ))}
+          </div>
+
+          <div
+            className="mt-6 px-8 sm:px-12"
+            style={{
+              opacity: isOpen ? 1 : 0,
+              transition: "opacity 0.4s ease 0.55s",
+            }}
+          >
+            <a
+              href={APP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={onClose}
+              className="group inline-flex items-center gap-2 bg-primary px-6 py-3.5 font-heading text-xs font-bold uppercase tracking-tight text-black transition-all hover:bg-primary/90"
+            >
+              Open App
+              <ArrowUpRight size={14} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
           </div>
         </div>
 

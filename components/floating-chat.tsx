@@ -53,7 +53,7 @@ function getAiReply(input: string): string {
   if (n.includes("picker") || n.includes("join") || n.includes("register") || n.includes("apply"))
     return "To join as a waste picker, visit the Waste Pickers page and click Apply. The process takes less than five minutes and onboarding is done within 48 hours."
   if (n.includes("business") || n.includes("generator") || n.includes("company") || n.includes("waste"))
-    return "Businesses of any size can register as waste generators. We collect fibre, paper, and cardboard. Plastics and metals are coming soon."
+    return "Businesses of any size can register as waste generators at app.watpak.com. We collect fibre waste today; plastics, e-waste, and metals are coming soon."
   if (n.includes("aggregator") || n.includes("hub"))
     return "Aggregation hubs receive pre-sorted, weighed waste from our picker network. Apply through the Aggregator page and we will assess your facility within five business days."
   if (n.includes("dashboard") || n.includes("earn") || n.includes("pay") || n.includes("money"))

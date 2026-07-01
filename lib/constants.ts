@@ -1,1 +1,1 @@
-export const APP_URL = "https://app.watpak.com"
+export const APP_URL = "https://demo.watpak.com"

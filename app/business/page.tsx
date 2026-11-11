@@ -52,38 +52,41 @@ export default function BusinessPage() {
 
         {/* Hero — full-bleed image */}
         <section className="relative min-h-svh overflow-hidden">
-          <Image
-            src="https://res.cloudinary.com/ddwet1dzj/image/upload/f_auto,q_auto:good,w_1920,c_fill/v1777192234/watpack/scene-2-request-pickup_hqdm3h.png"
-            alt="Waste generator scheduling a pickup"
-            fill
-            priority
-            className="object-cover object-center"
-          />
+          <div data-px-hero className="absolute inset-x-0 -inset-y-[8%] will-change-transform">
+            <Image
+              src="https://res.cloudinary.com/ddwet1dzj/image/upload/f_auto,q_auto:good,w_1920,c_fill/v1777192234/watpack/scene-2-request-pickup_hqdm3h.png"
+              alt="Waste generator scheduling a pickup"
+              fill
+              priority
+              className="p-img object-cover object-center"
+            />
+          </div>
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/10" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
 
           <div className="relative flex min-h-svh flex-col justify-end px-6 pb-20 pt-32 sm:px-10 md:px-16 lg:px-24">
-            <div className="mx-auto w-full max-w-[1400px]">
-              <nav className="mb-8 flex items-center gap-2">
+            <div data-fade-out className="mx-auto w-full max-w-[1400px] will-change-transform">
+              <nav className="p-fade mb-8 flex items-center gap-2">
                 <a href="/" className="font-heading text-[10px] font-bold uppercase tracking-[0.25em] text-white/30 transition-colors hover:text-white/60">Home</a>
                 <span className="font-heading text-[10px] text-white/20">/</span>
                 <span className="font-heading text-[10px] font-bold uppercase tracking-[0.25em] text-primary">Waste Generator</span>
               </nav>
-              <p className="mb-6 font-heading text-[10px] font-bold uppercase tracking-[0.4em] text-primary">
+              <p className="p-fade2 mb-6 font-heading text-[10px] font-bold uppercase tracking-[0.4em] text-primary">
                 For Waste Generators
               </p>
               <h1 className="max-w-3xl font-heading font-black uppercase italic leading-[0.82] tracking-tighter">
-                <span className="block text-[2.8rem] text-white sm:text-7xl lg:text-8xl">Turn Your</span>
-                <span className="block text-[1.9rem] text-white/60 sm:text-5xl lg:text-6xl">Waste Into</span>
-                <span className="block text-[3.6rem] text-primary sm:text-8xl lg:text-9xl">Revenue.</span>
+                <span className="p-line"><span className="block text-[2.8rem] text-white sm:text-7xl lg:text-8xl">Turn Your</span></span>
+                <span className="p-line"><span className="block text-[1.9rem] text-white/60 sm:text-5xl lg:text-6xl">Waste Into</span></span>
+                <span className="p-line"><span className="block text-[3.6rem] text-primary sm:text-8xl lg:text-9xl">Revenue.</span></span>
               </h1>
-              <p className="mt-8 max-w-xl font-heading text-sm leading-relaxed text-white/60 sm:text-base">
+              <p className="p-rise mt-8 max-w-xl font-heading text-sm leading-relaxed text-white/60 sm:text-base">
                 Businesses generate waste every day. Most pay to get rid of it. WatPak turns that cost into income. No logistics, no disruption to your operations, and full transparency on every pickup.
               </p>
-              <div className="mt-10">
+              <div className="p-rise2 mt-10">
                 <a
                   href={APP_URL}
-                  className="group inline-flex items-center gap-2 bg-primary px-7 py-4 font-heading text-sm font-bold uppercase tracking-tight text-black transition-all hover:bg-primary/90"
+                  data-magnetic
+                  className="group inline-flex items-center gap-2 bg-primary px-7 py-4 font-heading text-sm font-bold uppercase tracking-tight text-black hover:bg-primary/90"
                 >
                   Register as a Waste Generator
                   <ArrowUpRight size={15} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -98,16 +101,17 @@ export default function BusinessPage() {
           <div className="mx-auto max-w-[1400px]">
             <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-24">
               <div>
-                <p className="mb-4 font-heading text-[10px] font-bold uppercase tracking-[0.4em] text-primary">Your Role</p>
-                <h2 className="font-heading text-4xl font-black uppercase leading-[0.88] tracking-tight text-white sm:text-5xl">
-                  Where the<br />Chain Begins.
+                <p data-r="up" className="mb-4 font-heading text-[10px] font-bold uppercase tracking-[0.4em] text-primary">Your Role</p>
+                <h2 data-r="lines" className="font-heading text-4xl font-black uppercase leading-[0.88] tracking-tight text-white sm:text-5xl">
+                  <span className="line"><span>Where the</span></span>
+                  <span className="line"><span>Chain Begins.</span></span>
                 </h2>
               </div>
               <div className="flex flex-col gap-6">
-                <p className="font-heading text-base leading-relaxed text-white/55">
+                <p data-r="up" data-d="0.1" className="font-heading text-base leading-relaxed text-white/55">
                   Waste generators are where recyclable material enters the system. Whether you run a market stall, a printing office, a warehouse, or a manufacturing floor. The paper, cardboard, fibre, and packaging you produce has real value.
                 </p>
-                <p className="font-heading text-base leading-relaxed text-white/55">
+                <p data-r="up" data-d="0.1" className="font-heading text-base leading-relaxed text-white/55">
                   WatPak connects you directly to a verified picker who collects on your schedule, weighs on-site, and ensures your waste moves into a certified aggregation hub. Your earnings appear on your dashboard after every pickup. The material gets recycled. Nothing goes to landfill.
                 </p>
               </div>
@@ -118,13 +122,14 @@ export default function BusinessPage() {
         {/* What we collect */}
         <section className="border-t border-white/10 px-6 py-20 sm:px-10 sm:py-24 md:px-16 lg:px-24">
           <div className="mx-auto max-w-[1400px]">
-            <p className="mb-4 font-heading text-[10px] font-bold uppercase tracking-[0.4em] text-primary">What We Collect</p>
-            <h2 className="mb-16 font-heading text-4xl font-black uppercase leading-[0.88] tracking-tight text-white sm:text-5xl">
-              Waste Types<br />We Accept
-            </h2>
-            <div className="grid grid-cols-1 gap-px bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+            <p data-r="up" className="mb-4 font-heading text-[10px] font-bold uppercase tracking-[0.4em] text-primary">What We Collect</p>
+            <h2 data-r="lines" className="mb-16 font-heading text-4xl font-black uppercase leading-[0.88] tracking-tight text-white sm:text-5xl">
+                  <span className="line"><span>Waste Types</span></span>
+                  <span className="line"><span>We Accept</span></span>
+                </h2>
+            <div className="stagger grid grid-cols-1 gap-px bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
               {WASTE_TYPES.map(({ title, body, soon }, i) => (
-                <div key={title} className={`group relative bg-background p-8 transition-colors hover:bg-white/[0.03] ${soon ? "opacity-50" : ""}`}>
+                <div key={title} data-r="card" className={`group relative bg-background p-8 transition-colors hover:bg-white/[0.03] ${soon ? "opacity-50" : ""}`}>
                   {soon && (
                     <span className="absolute right-4 top-4 bg-primary/20 border border-primary/40 px-2.5 py-1 font-heading text-[9px] font-bold uppercase tracking-[0.25em] text-primary">
                       Coming Soon
@@ -144,13 +149,14 @@ export default function BusinessPage() {
         {/* Benefits */}
         <section className="border-t border-white/10 px-6 py-20 sm:px-10 sm:py-24 md:px-16 lg:px-24">
           <div className="mx-auto max-w-[1400px]">
-            <p className="mb-4 font-heading text-[10px] font-bold uppercase tracking-[0.4em] text-primary">Why WatPak</p>
-            <h2 className="mb-16 font-heading text-4xl font-black uppercase leading-[0.88] tracking-tight text-white sm:text-5xl">
-              What You<br />Get
-            </h2>
-            <div className="grid grid-cols-1 gap-px bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+            <p data-r="up" className="mb-4 font-heading text-[10px] font-bold uppercase tracking-[0.4em] text-primary">Why WatPak</p>
+            <h2 data-r="lines" className="mb-16 font-heading text-4xl font-black uppercase leading-[0.88] tracking-tight text-white sm:text-5xl">
+                  <span className="line"><span>What You</span></span>
+                  <span className="line"><span>Get</span></span>
+                </h2>
+            <div className="stagger grid grid-cols-1 gap-px bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
               {BENEFITS.map(({ num, title, body }) => (
-                <div key={num} className="group bg-background p-8 transition-colors hover:bg-white/[0.03]">
+                <div key={num} data-r="card" className="group bg-background p-8 transition-colors hover:bg-white/[0.03]">
                   <span className="mb-6 block font-heading text-[10px] font-bold uppercase tracking-[0.35em] text-primary">{num}</span>
                   <h3 className="mb-4 font-heading text-xl font-black uppercase leading-tight tracking-tight text-white">{title}</h3>
                   <p className="font-heading text-sm leading-relaxed text-white/45">{body}</p>
@@ -163,13 +169,14 @@ export default function BusinessPage() {
         {/* How it works + CTA */}
         <section className="border-t border-white/10 px-6 py-20 sm:px-10 sm:py-24 md:px-16 lg:px-24">
           <div className="mx-auto max-w-[1400px]">
-            <p className="mb-4 font-heading text-[10px] font-bold uppercase tracking-[0.4em] text-primary">The Process</p>
-            <h2 className="mb-16 font-heading text-4xl font-black uppercase leading-[0.88] tracking-tight text-white sm:text-5xl">
-              How It<br />Works
-            </h2>
-            <div className="mb-20 grid grid-cols-1 gap-px bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+            <p data-r="up" className="mb-4 font-heading text-[10px] font-bold uppercase tracking-[0.4em] text-primary">The Process</p>
+            <h2 data-r="lines" className="mb-16 font-heading text-4xl font-black uppercase leading-[0.88] tracking-tight text-white sm:text-5xl">
+                  <span className="line"><span>How It</span></span>
+                  <span className="line"><span>Works</span></span>
+                </h2>
+            <div className="stagger mb-20 grid grid-cols-1 gap-px bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
               {STEPS.map(({ num, title, body }) => (
-                <div key={num} className="bg-background p-8">
+                <div key={num} data-r="card" className="bg-background p-8">
                   <div className="mb-8 font-heading text-[5rem] font-black leading-none text-primary/20 sm:text-[6rem]">{num}</div>
                   <div className="border-l-2 border-primary pl-5">
                     <h3 className="mb-3 font-heading text-xl font-black uppercase tracking-tight text-white">{title}</h3>
@@ -179,10 +186,10 @@ export default function BusinessPage() {
               ))}
             </div>
 
-            <div className="border border-white/10 bg-white/[0.03] p-10 lg:p-14">
+            <div data-r="clip" className="border border-white/10 bg-white/[0.03] p-10 lg:p-14">
               <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-20">
                 <div>
-                  <p className="mb-2 font-heading text-[10px] font-bold uppercase tracking-[0.4em] text-primary">Get Started</p>
+                  <p data-r="up" className="mb-2 font-heading text-[10px] font-bold uppercase tracking-[0.4em] text-primary">Get Started</p>
                   <h3 className="font-heading text-3xl font-black uppercase leading-tight tracking-tight text-white sm:text-4xl">
                     Your Waste<br />Has Value.
                   </h3>
@@ -193,7 +200,8 @@ export default function BusinessPage() {
                   </p>
                   <a
                     href={APP_URL}
-                    className="group inline-flex w-fit items-center gap-2 bg-primary px-7 py-4 font-heading text-sm font-bold uppercase tracking-tight text-black transition-all hover:bg-primary/90"
+                    data-magnetic
+                    className="group inline-flex w-fit items-center gap-2 bg-primary px-7 py-4 font-heading text-sm font-bold uppercase tracking-tight text-black hover:bg-primary/90"
                   >
                     Register Now
                     <ArrowUpRight size={15} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

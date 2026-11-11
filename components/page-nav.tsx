@@ -3,8 +3,7 @@
 import { useState } from "react"
 import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
-import { HugeiconsIcon } from "@hugeicons/react"
-import { NewTwitterIcon, Linkedin01Icon, Facebook01Icon, InstagramIcon } from "@hugeicons/core-free-icons"
+import { SocialLinks } from "@/components/social-links"
 import { FullScreenMenu } from "@/components/full-screen-menu"
 
 const LINKS = [
@@ -15,19 +14,12 @@ const LINKS = [
   { label: "Contact",          href: "/contact"      },
 ]
 
-const SOCIALS = [
-  { icon: NewTwitterIcon, label: "X"         },
-  { icon: Linkedin01Icon, label: "LinkedIn"  },
-  { icon: Facebook01Icon, label: "Facebook"  },
-  { icon: InstagramIcon,  label: "Instagram" },
-]
-
 export function PageNav({ active }: { active?: string }) {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
     <>
-      <nav className="fixed left-0 right-0 top-0 z-[60] flex items-center justify-between border-b border-white/10 bg-background/90 px-6 py-4 backdrop-blur-md sm:px-10 md:px-16 lg:px-24">
+      <nav className="nav-in fixed left-0 right-0 top-0 z-[60] flex items-center justify-between border-b border-white/10 bg-background/90 px-6 py-4 backdrop-blur-md sm:px-10 md:px-16 lg:px-24">
 
         {/* Logo */}
         <a href="/" className="relative h-10 w-32 shrink-0 sm:h-12 sm:w-40">
@@ -54,7 +46,7 @@ export function PageNav({ active }: { active?: string }) {
               >
                 {label}
                 {isActive && (
-                  <span className="absolute -bottom-[17px] left-0 h-px w-full bg-primary" />
+                  <span className="nav-underline absolute -bottom-[17px] left-0 h-px w-full bg-primary" />
                 )}
               </a>
             )
@@ -72,16 +64,7 @@ export function PageNav({ active }: { active?: string }) {
 
         {/* Desktop: Social icons */}
         <div className="hidden items-center gap-3.5 md:flex">
-          {SOCIALS.map(({ icon, label }) => (
-            <a
-              key={label}
-              href="#"
-              aria-label={label}
-              className="text-white/30 transition-colors hover:text-primary"
-            >
-              <HugeiconsIcon icon={icon} size={15} strokeWidth={1.5} />
-            </a>
-          ))}
+          <SocialLinks size={15} className="soc text-white/30 hover:text-primary" />
         </div>
 
       </nav>

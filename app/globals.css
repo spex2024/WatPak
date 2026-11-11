@@ -236,3 +236,456 @@ body {
   position: relative;
   animation: preloader-logo-reveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
 }
+
+/* ───────────────────────── Motion ─────────────────────────
+   --intro is how long the preloader covers the page, so entrance
+   animations start as it lifts: full sequence on a first visit,
+   short on repeat visits, none once the page has settled.      */
+:root {
+  --intro: 2.05s;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+html[data-seen] {
+  --intro: 0.35s;
+}
+
+html[data-loaded] {
+  --intro: 0s;
+}
+
+html[data-seen] .preloader-text {
+  display: none;
+}
+
+@keyframes fade-down {
+  from {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes draw-x {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes draw-y {
+  from {
+    transform: scaleY(0);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes ul-in {
+  from {
+    transform: skewX(-12deg) scaleX(0);
+  }
+
+  to {
+    transform: skewX(-12deg) scaleX(1);
+  }
+}
+
+@keyframes kb {
+  from {
+    transform: scale(1.4);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes poly-in {
+  from {
+    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%);
+  }
+
+  to {
+    clip-path: polygon(15% 0%, 85% 0%, 85% 8%, 92% 8%, 92% 18%, 100% 18%, 100% 45%, 85% 45%, 85% 75%, 95% 75%, 95% 95%, 75% 95%, 75% 100%, 40% 100%, 40% 92%, 10% 92%, 10% 80%, 5% 80%, 5% 55%, 0% 55%, 0% 25%, 15% 25%);
+  }
+}
+
+/* Home hero entrance */
+.h-nav {
+  animation: fade-down 1s var(--ease-out) calc(var(--intro) + 0.45s) both;
+}
+
+.h-poly {
+  animation:
+    poly-in 1.7s var(--ease-in-out) var(--intro) both,
+    breathe 6s ease-in-out calc(var(--intro) + 1.85s) infinite;
+}
+
+.h-img {
+  animation: kb 2.6s var(--ease-out) var(--intro) both;
+}
+
+.h-ul {
+  transform-origin: left center;
+  animation: ul-in 0.9s var(--ease-in-out) calc(var(--intro) + 1.65s) both;
+}
+
+.h-cta {
+  animation: slide-up 1.2s var(--ease-out) calc(var(--intro) + 1.05s) both;
+}
+
+.h-scroll {
+  animation: fade-in 1s ease calc(var(--intro) + 1.75s) both;
+}
+
+.h-rule {
+  transform-origin: left center;
+  animation: draw-x 1.4s var(--ease-in-out) calc(var(--intro) + 0.95s) both;
+}
+
+.h-step {
+  animation: rise 0.9s var(--ease-out) both;
+}
+
+.h-soc > * {
+  animation: fade-in 0.8s ease both;
+}
+
+.h-guide {
+  transform-origin: top center;
+  animation: draw-y 1.6s var(--ease-in-out) calc(var(--intro) + 0.25s) both;
+}
+
+.h-par {
+  will-change: transform;
+}
+
+/* Inner page hero entrance */
+.nav-in {
+  animation: fade-down 0.9s var(--ease-out) calc(var(--intro) + 0.1s) both;
+}
+
+.nav-underline {
+  transform-origin: left center;
+  animation: draw-x 0.8s var(--ease-in-out) calc(var(--intro) + 0.6s) both;
+}
+
+.p-img {
+  animation: kb 2.4s var(--ease-out) var(--intro) both;
+}
+
+.p-fade {
+  animation: rise 0.9s var(--ease-out) calc(var(--intro) + 0.25s) both;
+}
+
+.p-fade2 {
+  animation: rise 0.9s var(--ease-out) calc(var(--intro) + 0.35s) both;
+}
+
+.p-line {
+  display: block;
+  overflow: hidden;
+  padding: 0 0.12em 0.1em 0;
+  margin-bottom: -0.1em;
+}
+
+.p-line > span {
+  animation: slide-up 1.15s var(--ease-out) calc(var(--intro) + 0.4s) both;
+}
+
+.p-line:nth-child(2) > span {
+  animation-delay: calc(var(--intro) + 0.5s);
+}
+
+.p-line:nth-child(3) > span {
+  animation-delay: calc(var(--intro) + 0.6s);
+}
+
+.p-rise {
+  animation: rise 1s var(--ease-out) calc(var(--intro) + 0.9s) both;
+}
+
+.p-rise2 {
+  animation: rise 1s var(--ease-out) calc(var(--intro) + 1.05s) both;
+}
+
+.p-rule {
+  transform-origin: left center;
+  animation: draw-x 1.3s var(--ease-in-out) calc(var(--intro) + 0.85s) both;
+}
+
+/* Scroll reveals. Elements are only hidden once the layout script has
+   put data-js on <html>, so without JavaScript everything stays visible. */
+[data-r] {
+  transition:
+    opacity 0.9s ease,
+    transform 1.1s var(--ease-out),
+    clip-path 1.2s var(--ease-in-out);
+  transition-delay: var(--d, 0s);
+}
+
+html[data-js] [data-r="up"]:not([data-in]) {
+  opacity: 0;
+  transform: translateY(44px);
+}
+
+html[data-js] [data-r="left"]:not([data-in]) {
+  opacity: 0;
+  transform: translateX(-28px);
+}
+
+/* Wipe open from the top. The clip goes on the children, not the element
+   itself: a fully clipped element never counts as "in view", so it would
+   never be revealed. */
+[data-r="clip"] > * {
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 1.2s var(--ease-in-out);
+  transition-delay: var(--d, 0s);
+}
+
+html[data-js] [data-r="clip"]:not([data-in]) > * {
+  clip-path: inset(0 0 100% 0);
+}
+
+/* Cards keep their background (it draws the grid lines) and reveal their contents. */
+[data-r="card"] {
+  transition: background-color 0.3s;
+  transition-delay: 0s;
+}
+
+[data-r="card"] > * {
+  transition:
+    opacity 0.9s ease,
+    transform 1.1s var(--ease-out);
+  transition-delay: var(--d, 0s);
+}
+
+html[data-js] [data-r="card"]:not([data-in]) > * {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+/* Headings that rise out of a mask, one line at a time. */
+.line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+
+.line > span {
+  display: block;
+  transition: transform 1.15s var(--ease-out);
+}
+
+.line:nth-child(2) > span {
+  transition-delay: 0.09s;
+}
+
+.line:nth-child(3) > span {
+  transition-delay: 0.18s;
+}
+
+html[data-js] [data-r="lines"]:not([data-in]) .line > span {
+  transform: translateY(112%);
+}
+
+/* Children of a .stagger container reveal one after another. */
+.stagger > [data-r]:nth-child(2) {
+  --d: 0.1s;
+}
+
+.stagger > [data-r]:nth-child(3) {
+  --d: 0.2s;
+}
+
+.stagger > [data-r]:nth-child(4) {
+  --d: 0.3s;
+}
+
+.stagger > [data-r]:nth-child(5) {
+  --d: 0.4s;
+}
+
+/* Scene tiles settle from a zoom as they wipe open. */
+html[data-js] .scene:not([data-in]) img {
+  transform: scale(1.45);
+}
+
+/* Hover details */
+.btn-fill {
+  background-image: linear-gradient(var(--fill, var(--primary)), var(--fill, var(--primary)));
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 100% 0%;
+  transition:
+    background-size 0.45s var(--ease-in-out),
+    color 0.3s,
+    border-color 0.3s,
+    transform 0.5s var(--ease-out);
+}
+
+.btn-fill:hover {
+  background-size: 100% 100%;
+}
+
+.ul-link {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: 0% 1px;
+  padding-bottom: 3px;
+  transition:
+    background-size 0.45s var(--ease-in-out),
+    color 0.3s;
+}
+
+.ul-link:hover {
+  background-position: left bottom;
+  background-size: 100% 1px;
+}
+
+.soc {
+  transition:
+    color 0.3s,
+    transform 0.4s var(--ease-out);
+}
+
+.soc:hover {
+  transform: translateY(-3px);
+}
+
+[data-magnetic] {
+  transition:
+    transform 0.5s var(--ease-out),
+    background-size 0.45s var(--ease-in-out),
+    background-color 0.3s,
+    color 0.3s,
+    border-color 0.3s;
+}
+
+/* Full-screen menu: links rise out of a mask after the panel wipes down. */
+.menu-link .lbl {
+  display: block;
+  transform: translateY(110%);
+  transition:
+    transform 0.9s var(--ease-out),
+    color 0.2s;
+}
+
+.menu-link .sub,
+.menu-link .ico {
+  opacity: 0;
+  transition:
+    opacity 0.5s ease,
+    color 0.2s,
+    translate 0.2s;
+}
+
+.menu-img {
+  transform: scale(1.25);
+  transition: transform 1.4s var(--ease-out) 0.15s;
+}
+
+[data-open="yes"] .menu-link .lbl {
+  transform: none;
+}
+
+[data-open="yes"] .menu-link .sub,
+[data-open="yes"] .menu-link .ico {
+  opacity: 1;
+  transition-delay: 0.6s, 0s, 0s;
+}
+
+[data-open="yes"] .menu-img {
+  transform: scale(1);
+}
+
+[data-open="yes"] .menu-link:nth-child(1) .lbl {
+  transition-delay: 0.3s, 0s;
+}
+
+[data-open="yes"] .menu-link:nth-child(2) .lbl {
+  transition-delay: 0.38s, 0s;
+}
+
+[data-open="yes"] .menu-link:nth-child(3) .lbl {
+  transition-delay: 0.46s, 0s;
+}
+
+[data-open="yes"] .menu-link:nth-child(4) .lbl {
+  transition-delay: 0.54s, 0s;
+}
+
+/* Page transition curtain */
+.page-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 250;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fcd404;
+  transform: translateY(100%);
+  pointer-events: none;
+}
+
+.page-curtain[data-on="yes"] {
+  transform: translateY(0);
+  transition: transform 0.6s var(--ease-in-out);
+}
+
+.page-curtain-label {
+  transform: translateY(110%);
+  transition: transform 0.6s var(--ease-out) 0.18s;
+}
+
+.page-curtain[data-on="yes"] .page-curtain-label {
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+  }
+}

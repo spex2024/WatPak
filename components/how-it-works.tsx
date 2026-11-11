@@ -77,21 +77,34 @@ export function HowItWorks() {
       {/* Header */}
       <div className="mx-auto max-w-[1400px] px-6 sm:px-10 md:px-16 lg:px-24">
         <div className="flex flex-col gap-4 py-16 sm:py-20 md:py-24">
-          <p className="font-heading text-[10px] font-bold uppercase tracking-[0.35em] text-primary">
+          <p
+            data-r="up"
+            className="font-heading text-[10px] font-bold uppercase tracking-[0.35em] text-primary"
+          >
             The Process
           </p>
-          <h2 className="font-heading text-4xl font-black uppercase leading-[0.88] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl">
-            How WatPak<br />Works
+          <h2
+            data-r="lines"
+            className="font-heading text-4xl font-black uppercase leading-[0.88] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl"
+          >
+            <span className="line">
+              <span>How WatPak</span>
+            </span>
+            <span className="line">
+              <span>Works</span>
+            </span>
           </h2>
         </div>
       </div>
 
       {/* Scene grid — gap-px creates film-border lines between frames */}
       <div className="grid grid-cols-1 gap-px border-y border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
-        {SCENES.map(({ num, text, src, motion }) => (
+        {SCENES.map(({ num, text, src, motion }, i) => (
           <div
             key={num}
-            className="group relative w-full overflow-hidden bg-[#0e211c]"
+            data-r="clip"
+            data-d={((i % 3) * 0.12).toFixed(2)}
+            className="scene group relative w-full overflow-hidden bg-[#0e211c]"
             style={{ paddingTop: "75%" }}
           >
             <Image
@@ -130,17 +143,28 @@ export function HowItWorks() {
           fill
           loading="lazy"
           sizes="100vw"
-          className="object-cover"
+          data-px
+          className="!-top-[12%] !h-[124%] object-cover will-change-transform"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent" />
 
         <div className="absolute bottom-0 left-0 right-0 px-6 pb-10 sm:px-10 sm:pb-14 md:px-16 md:pb-18 lg:px-24 lg:pb-20">
-          <span className="mb-4 block font-heading text-[9px] font-bold uppercase tracking-[0.35em] text-primary">
+          <span
+            data-r="up"
+            className="mb-4 block font-heading text-[9px] font-bold uppercase tracking-[0.35em] text-primary"
+          >
             Scene {FINAL_SCENE.num} / The Result
           </span>
-          <p className="font-heading text-4xl font-black uppercase leading-[0.85] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
-            <span className="text-white">{FINAL_SCENE.text.white}</span>
-            <span className="text-primary">{FINAL_SCENE.text.primary}</span>
+          <p
+            data-r="lines"
+            className="font-heading text-4xl font-black uppercase leading-[0.85] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
+          >
+            <span className="line">
+              <span className="text-white">{FINAL_SCENE.text.white}</span>
+            </span>
+            <span className="line">
+              <span className="text-primary">{FINAL_SCENE.text.primary}</span>
+            </span>
           </p>
         </div>
       </div>

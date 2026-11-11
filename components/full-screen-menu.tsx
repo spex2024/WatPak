@@ -2,8 +2,7 @@
 
 import Image from "next/image"
 import { X, ArrowUpRight } from "lucide-react"
-import { HugeiconsIcon } from "@hugeicons/react"
-import { NewTwitterIcon, Linkedin01Icon, Facebook01Icon, InstagramIcon } from "@hugeicons/core-free-icons"
+import { SocialLinks } from "@/components/social-links"
 import { APP_URL } from "@/lib/constants"
 
 const MAIN_LINKS = [
@@ -18,13 +17,6 @@ const SUB_LINKS = [
   { label: "Contact", href: "/contact" },
 ]
 
-const SOCIALS = [
-  { icon: NewTwitterIcon, label: "X" },
-  { icon: Linkedin01Icon, label: "LinkedIn" },
-  { icon: Facebook01Icon, label: "Facebook" },
-  { icon: InstagramIcon, label: "Instagram" },
-]
-
 interface Props {
   isOpen: boolean
   onClose: () => void
@@ -35,6 +27,7 @@ export function FullScreenMenu({ isOpen, onClose }: Props) {
 
   return (
     <div
+      data-open={isOpen ? "yes" : "no"}
       className="fixed inset-0 z-[200] flex flex-col overflow-hidden bg-[#142d26]"
       style={{
         clipPath: isOpen ? "inset(0 0 0% 0)" : "inset(0 0 100% 0)",
@@ -73,7 +66,7 @@ export function FullScreenMenu({ isOpen, onClose }: Props) {
                 alt=""
                 fill
                 unoptimized
-                className="object-cover object-center"
+                className="menu-img object-cover object-center"
               />
               <div className="absolute inset-0 bg-black/25" />
             </div>
@@ -93,29 +86,26 @@ export function FullScreenMenu({ isOpen, onClose }: Props) {
 
         {/* Right panel — main links */}
         <div className="flex flex-1 flex-col justify-center">
-          {MAIN_LINKS.map(({ label, href, sub, mobileOnly }, i) => (
+          {MAIN_LINKS.map(({ label, href, sub, mobileOnly }) => (
             <a
               key={label}
               href={href}
               onClick={onClose}
-              className={`group flex items-center justify-between border-b border-white/10 px-8 py-5 transition-all duration-200 hover:bg-white sm:px-12 sm:py-6 ${mobileOnly ? "md:hidden" : ""}`}
-              style={{
-                opacity: isOpen ? 1 : 0,
-                transform: isOpen ? "translateY(0)" : "translateY(16px)",
-                transition: `opacity 0.4s ease ${0.25 + i * 0.08}s, transform 0.4s ease ${0.25 + i * 0.08}s, background 0.2s`,
-              }}
+              data-label={label}
+              className={`menu-link group flex items-center justify-between border-b border-white/10 px-8 py-5 transition-colors duration-200 hover:bg-white sm:px-12 sm:py-6 ${mobileOnly ? "md:hidden" : ""}`}
             >
               <div>
-                <p className="font-heading text-4xl font-black uppercase tracking-tight text-white transition-colors group-hover:text-[#142d26] sm:text-5xl md:text-6xl lg:text-7xl">
-                  {label}
+                {/* The label rises out of this mask once the panel has wiped down */}
+                <p className="overflow-hidden pb-[0.08em] font-heading text-4xl font-black uppercase tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
+                  <span className="lbl group-hover:text-[#142d26]">{label}</span>
                 </p>
-                <p className="mt-0.5 font-heading text-xs text-white/30 transition-colors group-hover:text-[#142d26]/50">
+                <p className="sub mt-0.5 font-heading text-xs text-white/30 group-hover:text-[#142d26]/50">
                   {sub}
                 </p>
               </div>
               <ArrowUpRight
                 size={24}
-                className="shrink-0 text-white/20 transition-all duration-200 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-[#142d26]"
+                className="ico shrink-0 text-white/20 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-[#142d26]"
               />
             </a>
           ))}
@@ -168,11 +158,7 @@ export function FullScreenMenu({ isOpen, onClose }: Props) {
           © {year} WatPak. From waste to resource.
         </p>
         <div className="flex items-center gap-4 text-white/30">
-          {SOCIALS.map(({ icon, label }) => (
-            <a key={label} href="#" aria-label={label} className="transition-colors hover:text-primary">
-              <HugeiconsIcon icon={icon} size={16} strokeWidth={1.5} />
-            </a>
-          ))}
+          <SocialLinks size={16} className="soc hover:text-primary" />
         </div>
       </div>
 

@@ -19,32 +19,53 @@ export function CtaSection() {
 
             {/* Headline */}
             <div className="flex flex-col gap-5">
-              <p className="font-heading text-[10px] font-bold uppercase tracking-[0.35em] text-black/50">
+              <p
+                data-r="up"
+                className="font-heading text-[10px] font-bold uppercase tracking-[0.35em] text-black/50"
+              >
                 Get Started Today
               </p>
-              <h2 className="font-heading text-5xl font-black uppercase leading-[0.85] tracking-tight text-black sm:text-6xl lg:text-7xl xl:text-8xl">
-                Your waste<br />is worth<br />money.
+              <h2
+                data-r="lines"
+                className="font-heading text-5xl font-black uppercase leading-[0.85] tracking-tight text-black sm:text-6xl lg:text-7xl xl:text-8xl"
+              >
+                <span className="line">
+                  <span>Your waste</span>
+                </span>
+                <span className="line">
+                  <span>is worth</span>
+                </span>
+                <span className="line">
+                  <span>money.</span>
+                </span>
               </h2>
             </div>
 
             {/* Sub + CTAs */}
             <div className="flex flex-col gap-6 md:items-end">
-              <p className="max-w-xs font-heading text-sm font-medium leading-relaxed text-black/60 md:text-right">
+              <p
+                data-r="up"
+                data-d="0.15"
+                className="max-w-xs font-heading text-sm font-medium leading-relaxed text-black/60 md:text-right"
+              >
                 Schedule your first pickup today. We collect, weigh, and log every kilogram to your dashboard. No sorting. No trips.
               </p>
-              <div className="flex flex-wrap gap-3">
+              <div data-r="up" data-d="0.28" className="flex flex-wrap gap-3">
                 <a
+                  data-magnetic
                   href={APP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-2 bg-black px-7 py-4 font-heading text-sm font-bold uppercase tracking-tight text-white transition-all hover:bg-[#142d26]"
+                  style={{ "--fill": "#142d26" } as React.CSSProperties}
+                  className="btn-fill group inline-flex items-center gap-2 bg-black px-7 py-4 font-heading text-sm font-bold uppercase tracking-tight text-white"
                 >
                   Earn Now
                   <ArrowUpRight size={15} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </a>
                 <button
                   onClick={() => setModalOpen(true)}
-                  className="inline-flex items-center gap-2 border-2 border-black px-7 py-4 font-heading text-sm font-bold uppercase tracking-tight text-black transition-all hover:bg-black hover:text-white"
+                  style={{ "--fill": "#000000" } as React.CSSProperties}
+                  className="btn-fill inline-flex items-center gap-2 border-2 border-black px-7 py-4 font-heading text-sm font-bold uppercase tracking-tight text-black hover:text-white"
                 >
                   <Mail size={15} />
                   Subscribe to Newsletter

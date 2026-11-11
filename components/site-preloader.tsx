@@ -10,10 +10,34 @@ export function SitePreloader() {
   const [visible, setVisible] = useState(true)
 
   useEffect(() => {
-    const t1 = window.setTimeout(() => setPhase("logo"), 1300)
-    const t2 = window.setTimeout(() => setPhase("exit"), 2400)
-    const t3 = window.setTimeout(() => setVisible(false), 3200)
-    return () => { window.clearTimeout(t1); window.clearTimeout(t2); window.clearTimeout(t3) }
+    const root = document.documentElement
+    // Set by the inline script in app/layout.tsx on repeat visits in this
+    // tab: skip the text and logo and just lift, so page-to-page navigation
+    // reads as one curtain movement. Keep these timings in step with
+    // --intro in globals.css.
+    const seen = root.hasAttribute("data-seen")
+    const timers = seen
+      ? [
+          window.setTimeout(() => setPhase("exit"), 120),
+          window.setTimeout(() => setVisible(false), 950),
+        ]
+      : [
+          window.setTimeout(() => setPhase("logo"), 1100),
+          window.setTimeout(() => setPhase("exit"), 2000),
+          window.setTimeout(() => setVisible(false), 2800),
+        ]
+    // Once entrance animations have finished, drop the intro delay so
+    // anything mounted later animates immediately.
+    timers.push(
+      window.setTimeout(
+        () => root.setAttribute("data-loaded", "1"),
+        seen ? 3500 : 6000
+      )
+    )
+    try {
+      sessionStorage.setItem("wp-seen", "1")
+    } catch {}
+    return () => timers.forEach((t) => window.clearTimeout(t))
   }, [])
 
   if (!visible) return null
@@ -29,7 +53,7 @@ export function SitePreloader() {
     >
       {/* Phase 1 — text */}
       <div
-        className="absolute flex flex-col items-center text-center"
+        className="preloader-text absolute flex flex-col items-center text-center"
         style={{
           opacity: phase !== "text" ? 0 : 1,
           transform: phase !== "text" ? "translateY(-8%) scale(0.96)" : "translateY(0) scale(1)",

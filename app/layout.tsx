@@ -49,12 +49,11 @@ export const metadata: Metadata = {
     description:
       "Ghana's fibre, paper, and waste collection platform. Schedule a pickup, get weighed on-site, and earn money.",
   },
-  icons: {
-    icon: "https://res.cloudinary.com/ddwet1dzj/image/upload/v1777217085/watpack/favicon_gnnwpg.ico",
-  },
 }
 import Script from "next/script"
 import { FloatingChat } from "@/components/floating-chat"
+import { Motion } from "@/components/motion"
+import { PageCurtain } from "@/components/page-curtain"
 import { SitePreloader } from "@/components/site-preloader"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils";
@@ -80,8 +79,19 @@ export default function RootLayout({
       className={cn("antialiased", fontSans.variable, "font-mono", jetbrainsMono.variable, geistMonoHeading.variable)}
     >
       <body>
+        {/* Runs before first paint. data-js lets CSS hide scroll-reveal
+            elements (skipped for reduced motion, and undone if the motion
+            script never starts). data-seen marks a repeat visit in this tab
+            so the preloader lifts straight away. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var d=document.documentElement;if(sessionStorage.getItem("wp-seen"))d.setAttribute("data-seen","1");if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){d.setAttribute("data-js","1");setTimeout(function(){if(!window.__wpMotion)d.removeAttribute("data-js")},6000)}}catch(e){}})()`,
+          }}
+        />
         <ThemeProvider>
           <SitePreloader />
+          <PageCurtain />
+          <Motion />
           {children}
           <FloatingChat />
         </ThemeProvider>
